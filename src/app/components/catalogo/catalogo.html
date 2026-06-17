@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Nuestros Productos</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label for="filtroCategoria" class="form-label">Categoría</label>
+      <select id="filtroCategoria" class="form-select" [(ngModel)]="filtroCategoria" (change)="aplicarFiltros()">
+        <option *ngFor="let cat of categorias" [value]="cat.idCategoria">{{ cat.nombre }}</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="filtroNombre" class="form-label">Buscar por nombre</label>
+      <input type="text" id="filtroNombre" class="form-control" [(ngModel)]="filtroNombre" (input)="aplicarFiltros()" placeholder="Ej: Quebranta">
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let producto of productosFiltrados">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">Categoría: {{ producto.categoria.nombre }}</p>
+          <p class="card-text">Marca: {{ producto.marca.nombre }}</p>
+          <p class="card-text fw-bold">S/ {{ producto.precioReferencial }}</p>
+          <button class="btn btn-primary">Cotizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

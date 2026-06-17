@@ -1,0 +1,20 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg" style="width: 400px;">
+    <div class="card-header bg-dark text-white text-center">
+      <h4>Iniciar Sesión - SIGVID</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="usuario@vitivinicola.pe">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Ingresar</button>
+      </form>
+    </div>
+  </div>
+</div>
